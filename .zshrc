@@ -270,3 +270,7 @@ unload-env() {
     fi
   done <"$env_file"
 }
+eval "$(/opt/homebrew/bin/rbenv init - zsh)"
+
+# Added by Antigravity
+export PATH="/Users/ebertondias/.antigravity/antigravity/bin:$PATH"
