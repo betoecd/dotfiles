@@ -29,6 +29,7 @@ return {
         "leoluz/nvim-dap-go",
         "igorlfs/nvim-dap-view",
         "banjo/package-pilot.nvim",
+        "mfussenegger/nvim-dap-python",
     },
     keys = {
         { "<leader>dc", "<cmd>DapContinue<cr>", desc = "DAP Continue" },
@@ -95,6 +96,40 @@ return {
     config = function()
         require("nvim-dap-virtual-text").setup({})
         require("dap-go").setup()
+
+        vim.fn.sign_define("DapBreakpoint", {
+            text = "●",
+            texthl = "DiagnosticSignError",
+            linehl = "",
+            numhl = "",
+        })
+
+        local python_dap_configured = false
+        vim.api.nvim_create_autocmd("FileType", {
+            group = vim.api.nvim_create_augroup("dap_python_setup", { clear = true }),
+            pattern = "python",
+            callback = function()
+                if python_dap_configured then
+                    return
+                end
+                python_dap_configured = true
+
+                local debugpy_python = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
+                if not (vim.uv and vim.uv.fs_stat(debugpy_python)) then
+                    if vim.notify_once then
+                        vim.notify_once("debugpy not found. Install with :MasonInstall debugpy", vim.log.levels.WARN)
+                    end
+                    return
+                end
+
+                local ok, dap_python = pcall(require, "dap-python")
+                if not ok then
+                    return
+                end
+
+                dap_python.setup(debugpy_python)
+            end,
+        })
 
         local dap = require("dap")
         dap.configurations.go = dap.configurations.go or {}
