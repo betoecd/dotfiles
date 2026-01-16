@@ -27,7 +27,8 @@ return {
     dependencies = {
         "theHamsta/nvim-dap-virtual-text",
         "leoluz/nvim-dap-go",
-        "igorlfs/nvim-dap-view",
+        "rcarriga/nvim-dap-ui",
+        "nvim-neotest/nvim-nio",
         "banjo/package-pilot.nvim",
         "mfussenegger/nvim-dap-python",
     },
@@ -41,8 +42,27 @@ return {
         { "<leader>dq", "<cmd>DapTerminate<cr>", desc = "DAP Terminate" },
         { "<leader>du", "<cmd>DapUp<cr>", desc = "DAP Up" },
         { "<leader>dd", "<cmd>DapDown<cr>", desc = "DAP Down" },
-        { "<leader>dt", "<cmd>DapViewToggle<cr>", desc = "DAP View Toggle" },
-        { "<leader>dw", "<cmd>DapViewWatch<cr>", desc = "DAP View Watch" },
+        {
+            "<leader>dt",
+            function()
+                local ok, dapui = pcall(require, "dapui")
+                if ok then
+                    dapui.toggle()
+                end
+            end,
+            desc = "DAP UI Toggle",
+        },
+        {
+            "<leader>dw",
+            function()
+                local ok, dapui = pcall(require, "dapui")
+                if ok then
+                    dapui.eval()
+                end
+            end,
+            desc = "DAP UI Eval",
+            mode = { "n", "v" },
+        },
     },
     opts = function(_, opts)
         local dap = require("dap")
@@ -103,6 +123,22 @@ return {
             linehl = "",
             numhl = "",
         })
+
+        local dapui_ok, dapui = pcall(require, "dapui")
+        if dapui_ok then
+            dapui.setup()
+
+            local dap = require("dap")
+            dap.listeners.after.event_initialized["dapui_config"] = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated["dapui_config"] = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited["dapui_config"] = function()
+                dapui.close()
+            end
+        end
 
         local python_dap_configured = false
         vim.api.nvim_create_autocmd("FileType", {
