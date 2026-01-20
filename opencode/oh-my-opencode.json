@@ -19,9 +19,6 @@
         },
         "Sisyphus": {
             "model": "openai/gpt-5.2"
-        },
-        "Planner-Sisyphus": {
-            "model": "openai/gpt-5.2"
         }
     }
 }
