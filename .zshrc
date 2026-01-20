@@ -61,31 +61,6 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 # source $(dirname $(gem which colorls))/tab_complete.sh
 
 
-# Personal SpaceShip config
-# SPACESHIP_PROMPT_ORDER=(
-#   line_sep      # Line break
-#   time          # Time stampts section
-#   user          # Username section
-#   dir           # Current directory section
-#   host          # Hostname section
-#   git           # Git section (git_branch + git_status)
-#   hg            # Mercurial section (hg_branch  + hg_status)
-#   node          # Node.js section
-#   ruby          # Ruby section
-#   python        # Python section
-#   java          # Java section
-#   docker        # Docker section
-#   venv          # virtualenv section
-#   conda         # conda virtualenv section
-#   jobs          # Background jobs indicator
-#   exit_code     # Exit code section
-#   char          # Prompt character
-# )
-# SPACESHIP_USER_SHOW=always
-# SPACESHIP_PROMPT_ADD_NEWLINE=false
-# SPACESHIP_USER_PREFIX=
-# SPACESHIP_DOCKER_SHOW=true
-
 
 # Function for create venv
 function cvenv {
