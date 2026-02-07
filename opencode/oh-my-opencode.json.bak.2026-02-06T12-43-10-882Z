@@ -18,11 +18,11 @@
             "model": "google/gemini-3-flash"
         },
         "prometheus": {
-            "model": "anthropic/claude-opus-4-6",
+            "model": "anthropic/claude-opus-4-5",
             "variant": "max"
         },
         "metis": {
-            "model": "anthropic/claude-opus-4-6",
+            "model": "anthropic/claude-opus-4-5",
             "variant": "max"
         },
         "momus": {
