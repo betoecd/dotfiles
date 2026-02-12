@@ -133,6 +133,8 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
 
+alias switch-provider="$HOME/dotfiles/opencode/switch-provider.sh"
+
 alias vim=nvim
 
 export EDITOR=nvim
