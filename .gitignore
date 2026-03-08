@@ -3,3 +3,6 @@ tmux/plugins/
 raycast
 fzf
 history.txt
+
+# opencode
+opencode/oh-my-opencode.json.back.*
