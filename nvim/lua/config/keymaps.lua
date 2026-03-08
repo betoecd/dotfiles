@@ -65,3 +65,19 @@ vim.keymap.set(
 )
 -- delete file in current buffer
 vim.keymap.set("n", "<leader>zdd", ":!rm '%:p'<cr>:bd<cr>")
+
+vim.keymap.set("n", "<leader>cy", function()
+    local relative_path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p")
+    local line = vim.fn.line(".")
+    local str = string.format("%s:%d", relative_path, line)
+    vim.fn.setreg("+", str)
+    print("Copied: " .. str)
+end)
+
+vim.keymap.set("x", "<leader>cy", function()
+    local relative_path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p")
+    local line = vim.fn.line(".")
+    local str = string.format("%s:%d", relative_path, line)
+    vim.fn.setreg("+", str)
+    print("Copied: " .. str)
+end)
