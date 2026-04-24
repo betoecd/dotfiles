@@ -3,7 +3,7 @@
 theme = rosepine
 background = #16141f
 background-blur-radius = 25
-background-image = ~/Pictures/wallpapers/rose_pine_contourline.png
+# background-image = ~/Pictures/wallpapers/rose_pine_contourline.png
 background-image-fit = stretch
 background-image-opacity = 0.05
 
@@ -14,9 +14,9 @@ cursor-style-blink = true
 cursor-color = #e0def4
 cursor-text = #191724
 
-macos-titlebar-style = hidden
+macos-titlebar-style = tabs
 macos-option-as-alt = true
-mouse-hide-while-typing = true
+mouse-hide-while-typing = false
 
 confirm-close-surface = false
 window-decoration = auto
