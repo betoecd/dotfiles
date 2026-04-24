@@ -279,3 +279,8 @@ eval "$(/opt/homebrew/bin/rbenv init - zsh)"
 
 # Added by Antigravity
 export PATH="/Users/ebertondias/.antigravity/antigravity/bin:$PATH"
+
+# opencode
+export PATH=/Users/ebertondias/.opencode/bin:$PATH
+fpath=(~/.zsh/completions $fpath)
+autoload -U compinit && compinit
