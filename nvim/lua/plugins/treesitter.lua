@@ -44,9 +44,11 @@ return {
                 "python",
                 "javascript",
                 "typescript",
+                "tsx",
                 "html",
                 "css",
                 "prisma",
+                "sql",
             },
         },
         ---@param opts lazyvim.TSConfig
