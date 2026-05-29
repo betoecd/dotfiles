@@ -21,7 +21,7 @@ return {
                     percentage = 0.15,
                 },
             })
-            -- vim.cmd.colorscheme("rose-pine-moon")
+            vim.cmd.colorscheme("rose-pine-moon")
         end,
     },
     {
@@ -32,7 +32,7 @@ return {
                 background = "light",
             })
             vim.o.background = "light"
-            vim.cmd.colorscheme("gruvbox")
+            -- vim.cmd.colorscheme("gruvbox")
         end,
     },
     {
