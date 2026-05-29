@@ -21,7 +21,18 @@ return {
                     percentage = 0.15,
                 },
             })
-            vim.cmd.colorscheme("rose-pine-moon")
+            -- vim.cmd.colorscheme("rose-pine-moon")
+        end,
+    },
+    {
+        "ellisonleao/gruvbox.nvim",
+        priority = 1000,
+        config = function()
+            require("gruvbox").setup({
+                background = "light",
+            })
+            vim.o.background = "light"
+            vim.cmd.colorscheme("gruvbox")
         end,
     },
     {
