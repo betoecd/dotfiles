@@ -6,3 +6,9 @@ history.txt
 
 # opencode
 opencode/oh-my-opencode.json.back.*
+
+# claude — track only config, ignore runtime state (transcripts, logs, caches, history)
+claude/*
+!claude/CLAUDE.md
+!claude/settings.json
+!claude/statusline-command.sh
